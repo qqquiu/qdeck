@@ -2,7 +2,7 @@
 #include <MIDIUSB.h>
 
 #include <QDeckMIDI.h>
-#include <QDeckFaderInput.h>
+#include <QDeckFader.h>
 
 // AUDIO & FADER SETTINGS
 const uint8_t
@@ -12,16 +12,16 @@ const uint8_t
   PIN_BUS_D = A3, ID_BUS_D = 13,
   PIN_BUS_M = A4, ID_BUS_M = 19;
 
-QDeckFaderInput 
+QDeckFader 
   FaderA = {PIN_BUS_A, ID_BUS_A},
   FaderB = {PIN_BUS_B, ID_BUS_B},
   FaderC = {PIN_BUS_C, ID_BUS_C},
   FaderD = {PIN_BUS_D, ID_BUS_D},
   FaderM = {PIN_BUS_M, ID_BUS_M};
 
-QDeckFaderInput *AudioBusses[] = {&FaderA, &FaderB, &FaderC, &FaderD, &FaderM};
+QDeckFader *AudioBusses[] = {&FaderA, &FaderB, &FaderC, &FaderD, &FaderM};
 
-const uint8_t BUS_COUNT = sizeof(AudioBusses) / sizeof(QDeckFaderInput*);
+const uint8_t BUS_COUNT = sizeof(AudioBusses) / sizeof(QDeckFader*);
 
 void setup() {
   Serial.begin(9600);
