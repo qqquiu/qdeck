@@ -23,8 +23,9 @@ QDeckFader *AudioBusses[] = {&FaderA, &FaderB, &FaderC, &FaderD, &FaderM};
 
 const uint8_t BUS_COUNT = sizeof(AudioBusses) / sizeof(QDeckFader*);
 
-void setup() {
-  Serial.begin(9600);
+void setup()
+{
+  //Serial.begin(9600);
 }
 
 void loop()
