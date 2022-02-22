@@ -29,8 +29,8 @@ const uint8_t midi1_sig = 0;                        // This will send Note 0
 QDeckButton_MIDI midi1 = {midi1_pin, midi1_sig};    // Create a MIDI button object with pin and signal parameters
 
 // DECLARING A KEY MANAGER - REQUIRED FOR KEYBOARD AND/OR MIDI BUTTONS
-QDeckButton_Base* but_arr = {&kb1, &midi1};                                 // Create a QDeckButton_Base array of pointers with the address of all button inputs
-const uint8_t total_buttons = sizeof(but_arr) / sizeof(QDeckButon_Base*);   // Calculate the amount of buttons at runtime so you don't need a magic number
+QDeckButton_Base* but_arr[] = {&kb1, &midi1};                                 // Create a QDeckButton_Base array of pointers with the address of all button inputs
+const uint8_t total_buttons = sizeof(but_arr) / sizeof(QDeckButton_Base*);   // Calculate the amount of buttons at runtime so you don't need a magic number
 
 QDeckKeyManager key_manager = {but_arr, total_buttons, common_pin};         // Create a KeyManager object and pass the button array, total buttons and common pin.
 
@@ -47,7 +47,7 @@ QDeckFader* pot_arr[] = {&pot1};                            // Then an array of 
 const uint8_t pots = sizeof(pot_arr) / sizeof(QDeckFader*); // Calculate the amount of pots at runtime so you don't need a magic number
 
 void setup() {
-  KeyManager.Initialize();  // Needs to be called here
+  key_manager.Initialize();  // Needs to be called here
 }
 
 void loop()
