@@ -9,53 +9,42 @@
 #include <QDeckFader.h>
 #include <QDeckKeyManager.h>
 
-// KEYBOARD BUTTON SETTINGS
-const uint8_t 
-  PIN_KEY_1 = 4, SIG_KEY_1 = KEY_F13;
+// PINS & SIGNALS
+const uint8_t PIN_KEY_1 = 4;
+const uint8_t SIG_KEY_1 = KEY_F13;
 
-QDeckButton_KB
-  Key1 = {PIN_KEY_1, SIG_KEY_1};
+const uint8_t PIN_MIDI_1 = 5;
+const uint8_t SIG_MIDI_1 = 0;
 
-// MIDI BUTTON SETTINGS
-const uint8_t
-  PIN_MIDI_1 = 5, NOTE_MIDI_1 = 0;
+const uint8_t PIN_BUS_A = A0
+const uint8_t SIG_BUS_A = 10;
 
-QDeckButton_MIDI
-  Midi1 = {PIN_MIDI_1, NOTE_MIDI_1};
+// KEYBOARD & MIDI BUTTONS
+QDeckButton_KB Key_1 = {PIN_KEY_1, SIG_KEY_1};
+QDeckButton_MIDI Midi_1 = {PIN_MIDI_1, SIG_MIDI_1};
 
-// KEY MANAGER SETTINGS
-QDeckButton_Base* DeckButtons[] = {&Key1, &Midi1};
+QDeckButton_Base* KeyInputs[] = {&Key_1, &Midi_1};
 
 const uint8_t kCommonPin = 2;
-const uint8_t kTotalKeys = sizeof(DeckButtons) / sizeof(QDeckButton_Base*);
+const uint8_t kTotalKeys = sizeof(KeyInputs) / sizeof(QDeckButton_Base*);
 
-QDeckKeyManager KeyManager = {DeckButtons, kTotalKeys, kCommonPin};
+QDeckKeyManager KeyManager = {KeyInputs, kTotalKeys, kCommonPin};
 
-// AUDIO & FADER SETTINGS
-const uint8_t
-  PIN_BUS_A = A0, ID_BUS_A = 10;
+// MIDI POTS/FADERS
+QDeckFader FaderA = {PIN_BUS_A, ID_BUS_A};
+QDeckFader* AudioFaders[] = {&FaderA};
 
-QDeckFader 
-  FaderA = {PIN_BUS_A, ID_BUS_A};
+const uint8_t kFaderCount = sizeof(AudioBusses) / sizeof(QDeckFader*);
 
-QDeckFader *AudioBusses[] = {&FaderA};
-
-const uint8_t BUS_COUNT = sizeof(AudioBusses) / sizeof(QDeckFader*);
-
-void testfunc()
-{
-  //Serial.println("INTERRUPT IN TEST FUNC");
-}
-
+// SETUP & LOOP
 void setup() {
   KeyManager.Initialize();
   Serial.begin(9600);
-  //attachInterrupt(digitalPinToInterrupt(kCommonPin), testfunc, FALLING);
 }
 
 void loop()
 {
-  for (int i = 0; i < BUS_COUNT; i++)
+  for (int i = 0; i < kFaderCount; i++)
   {
     AudioBusses[i]->ReadFader();
   }
