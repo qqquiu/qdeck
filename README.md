@@ -13,7 +13,7 @@ While it's been mainly designed to assist in live video production work (OBS & v
 - Rotary and slide potentiometers (faders) that send MIDI `Control Change` signals
 
 # Usage
-Refer to the `example.ino` file in this repository for demonstrations on how to use libraries and classes correctly.
+Refer to the [example.ino](https://github.com/matheusmeloni/QDeck/blob/main/example.ino) file for a demo on the libraries
 
 # Dependencies
 - [MIDIUSB](https://github.com/arduino-libraries/MIDIUSB)
