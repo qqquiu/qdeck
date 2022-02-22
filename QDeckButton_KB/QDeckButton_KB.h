@@ -8,6 +8,9 @@ class QDeckButton_KB : public QDeckButton_Base
 {
     private:
         const uint8_t _key;
+    
+    public:
+        virtual void Interact();
 
     QDeckButton_KB (uint8_t p, uint8_t k)
     : QDeckButton_Base { p }

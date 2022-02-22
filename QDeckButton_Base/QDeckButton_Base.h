@@ -1,6 +1,8 @@
 #ifndef QDECKBUTTONBASE_H
 #define QDECKBUTTONBASE_H
 
+#include <Arduino.h>
+
 class QDeckButton_Base
 {
     private:
