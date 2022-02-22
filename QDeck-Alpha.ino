@@ -16,7 +16,7 @@ const uint8_t SIG_KEY_1 = KEY_F13;
 const uint8_t PIN_MIDI_1 = 5;
 const uint8_t SIG_MIDI_1 = 0;
 
-const uint8_t PIN_BUS_A = A0
+const uint8_t PIN_BUS_A = A0;
 const uint8_t SIG_BUS_A = 10;
 
 // KEYBOARD & MIDI BUTTONS
