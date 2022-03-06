@@ -12,7 +12,7 @@
 #include <QD_SwitchManager.h>                   // Include if using switches/buttons
 
 // WHEN USING ANY TYPE OF SWITCH FOR KEYBOARD AND/OR MIDI
-const uint8_t common_pin = 0;
+const uint8_t common_pin = 2;
 
 const uint8_t k1_pin = 7;
 const uint8_t k1_sig = KEY_F13; // Read Keyboard.h documentation
@@ -20,7 +20,7 @@ const uint8_t k1_sig = KEY_F13; // Read Keyboard.h documentation
 const uint8_t m1_pin = 8;
 const uint8_t m1_sig = 10; // Note 10 in MIDI
 
-QD_Switch* switches = {
+QD_Switch* switches[] = {
   new QD_KbSwitch   {k1_pin, k1_sig},
   new QD_MidiSwitch {m1_pin, m1_sig}
 };
@@ -34,7 +34,7 @@ const uint8_t p1_pin = A0;
 const uint8_t p1_sig = 11; // Note 11 in MIDI
 
 // You can alternatively use the typedefs QD_Pot or QD_Fader for better readability
-QD_Potentiometer* pots = {
+QD_Potentiometer* pots[] = {
   new QD_Potentiometer {p1_pin, p1_sig}
 };
 
