@@ -1,13 +1,11 @@
 # About
-
-## What is it?
-
+A repository for different QDeck libraries you can add to your custom deck.
+## What is this?
 The QDeck is a MIDI & Keyboard USB controller project, using an Arduino with ATmega32u4.
 
 While it's been mainly designed to assist in live video production work (OBS & vMix), it can be used for many cases - as long as the software has proper support, such as MIDI and proper keyboard signals.
 
 ## Stuff you can make
-
 - Switches that sends computer keyboard signals like `F1` to `F12` or even `F13` to `F24`, essentially giving you extra hotkeys that won't interfere with your main keyboard keys
 - Switches that send MIDI `Note On` / `Note Off` signals
 - Rotary and slide potentiometers (faders) that send MIDI `Control Change` signals
