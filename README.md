@@ -3,6 +3,8 @@ A repository for different QDeck libraries you can add to your custom deck.
 ## What is this?
 The QDeck is a MIDI & Keyboard USB controller project, using an Arduino with ATmega32u4.
 
+https://user-images.githubusercontent.com/13590967/156938866-cadb5efd-5ec7-48a4-9a54-23e081dfa347.mp4
+
 While it's been mainly designed to assist in live video production work (OBS & vMix), it can be used for many cases - as long as the software has proper support, such as MIDI and proper keyboard signals.
 
 ## Stuff you can make
