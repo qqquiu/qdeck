@@ -10,7 +10,7 @@
 class QD_Potentiometer
 {
     public:
-        QD_Potentiometer (uint8_t p, uint8_t n) : kPin(p), kNote(n) {}
+        QD_Potentiometer (uint8_t, uint8_t);
 
         void read();
 

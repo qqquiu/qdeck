@@ -1,5 +1,11 @@
 #include "QD_Potentiometer.h"
 
+QD_Potentiometer::QD_Potentiometer(uint8_t pin, uint8_t note)
+: kPin(pin), kNote(note)
+{
+    
+}
+
 void QD_Potentiometer::read()
 {
     uint16_t current_read = analogRead(kPin);
