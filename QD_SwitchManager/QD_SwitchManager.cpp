@@ -15,23 +15,17 @@ QD_SwitchManager::QD_SwitchManager(QD_Switch* arr[], size_t total, uint8_t inter
 : kInputs(arr), kTotalKeys(total), kInterruptPin(interrupt)
 {
     auxPtr = this;
-    uint8_t common = digitalPinToInterrupt(kInterruptPin);
     set_interrupt_default();
-    attachInterrupt(common, workaround_interrupt, FALLING);
+    attachInterrupt(digitalPinToInterrupt(kInterruptPin), workaround_interrupt, FALLING);
 }
 
 void QD_SwitchManager::interrupt_handler()
 {
-    if ( kDebounceTime < (millis() - lastPressed) )
+    for (size_t i = 0; i < kTotalKeys; i++)
     {
-        lastPressed = millis();
-        set_interrupt_read();
-        for (size_t i = 0; i < kTotalKeys; i++)
-        {
-            if (kInputs[i]->is_pressed()) break;
-        }
-        set_interrupt_default();
+        if (kInputs[i]->is_pressed()) break;
     }
+    set_interrupt_default();
 }
 
 void QD_SwitchManager::set_interrupt_default()
@@ -39,7 +33,7 @@ void QD_SwitchManager::set_interrupt_default()
     pinMode(kInterruptPin, INPUT_PULLUP);
 }
 
-void QD_SwitchManager::set_interrupt_read()
+void QD_SwitchManager::set_interrupt_triggered()
 {
     pinMode(kInterruptPin, OUTPUT);
     digitalWrite(kInterruptPin, LOW);

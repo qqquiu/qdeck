@@ -2,12 +2,12 @@
 
 void QD_Potentiometer::read()
 {
-    uint16_t currentRead = analogRead(kPin);
-    uint16_t readDiff = abs(potRead - currentRead);
-    if (readDiff > kThres)
+    uint16_t current_read = analogRead(kPin);
+    uint16_t read_diff = abs(pot_read - current_read);
+    if (read_diff > kThres)
     {
-        potRead = currentRead;
-        send_midi(potRead);
+        pot_read = current_read;
+        send_midi(pot_read);
     }
 }
 

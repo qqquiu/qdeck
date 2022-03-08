@@ -3,16 +3,15 @@
 
 #include <Arduino.h>
 #include <Keyboard.h>
+
 #include "../QD_Switch/QD_Switch.h"
 
 class QD_KbSwitch : public QD_Switch
 {
     public:
-        QD_KbSwitch (uint8_t p, uint8_t k)
-        : QD_Switch { p }
-        , kKey { k } {}
+        QD_KbSwitch (uint8_t, uint8_t);
 
-        void interact();
+        virtual void interact() override;
     
     private:
         const uint8_t kKey;

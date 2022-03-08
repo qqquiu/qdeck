@@ -8,17 +8,24 @@ QD_Switch::QD_Switch(uint8_t pin)
 
 bool QD_Switch::is_pressed()
 {
-    set_switch_read();
+    set_switch_interrupt();
     
     bool pressed = !digitalRead(kPin);
-    if (pressed) interact();
+
+    if (pressed)
+    {
+        const unsigned long current_time = millis();
+        if (kDebounceTime < (current_time - last_pressed))
+        {
+            last_pressed = current_time;
+            interact();
+        }
+    }
 
     set_switch_default();
 
     return pressed;
 }
-
-void QD_Switch::interact() {}
 
 void QD_Switch::set_switch_default()
 {
@@ -26,7 +33,7 @@ void QD_Switch::set_switch_default()
     digitalWrite(kPin, LOW);
 }
 
-void QD_Switch::set_switch_read()
+void QD_Switch::set_switch_interrupt()
 {
     pinMode(kPin, INPUT_PULLUP);
 }

@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#define GET_TOTAL_SWITCHES(sw_arr) sizeof(sw_arr) / sizeof(QD_Switch*)
+
 class QD_Switch
 {
     public:
@@ -11,10 +13,13 @@ class QD_Switch
 
     private:
         const uint8_t kPin;
+        const uint8_t kDebounceTime = 100; //ms
+        unsigned long last_pressed = 0;
 
         void set_switch_default();
-        void set_switch_read();
-        virtual void interact();
+        void set_switch_interrupt();
+
+        virtual void interact() = 0;
 };
 
 #endif

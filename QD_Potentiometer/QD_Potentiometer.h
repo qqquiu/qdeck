@@ -2,7 +2,10 @@
 #define __QD_POTENTIOMETER_H_
 
 #include <Arduino.h>
+
 #include "../QD_MIDI/QD_MIDI.h"
+
+#define GET_TOTAL_POTS(pot_arr) sizeof(pot_arr) / sizeof(QD_Potentiometer*)
 
 class QD_Potentiometer
 {
@@ -14,8 +17,9 @@ class QD_Potentiometer
     private:
         const uint8_t kPin;
         const uint8_t kNote;
-        const uint8_t kThres = 10;
-        uint16_t potRead = 0;
+        const uint16_t kThres = 10;
+        
+        uint16_t pot_read = 0;
         
         void send_midi(uint16_t);
 };
