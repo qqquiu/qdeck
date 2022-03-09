@@ -21,6 +21,7 @@ QD_SwitchManager::QD_SwitchManager(QD_Switch* arr[], size_t total, uint8_t inter
 
 void QD_SwitchManager::interrupt_handler()
 {
+    set_interrupt_triggered();
     for (size_t i = 0; i < kTotalKeys; i++)
     {
         if (kInputs[i]->is_pressed()) break;
