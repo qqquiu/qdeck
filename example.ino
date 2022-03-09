@@ -25,7 +25,7 @@ QD_Switch* switches = {
   new QD_MidiSwitch {m1_pin, m1_sig}
 };
 
-const size_t kTotal_switches = GET_TOTAL_SWITCHES(switches)
+const size_t kTotal_switches = GET_TOTAL_SWITCHES(switches);
 QD_SwitchManager manager = {switches, kTotal_switches, kCommon_pin};
 
 // MIDI POTENTIOMETERS/FADERS
