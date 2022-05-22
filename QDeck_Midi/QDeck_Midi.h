@@ -14,4 +14,4 @@ namespace QDeck_MIDI
     void ControlChange(uint8_t note, uint16_t value);
 }
 
-#endif
+#endif // QDECK_MIDI
