@@ -1,11 +1,7 @@
 # About
-A repository for different QDeck libraries you can add to your custom deck.
-## What is this?
-The QDeck is a MIDI & Keyboard USB controller project, using an Arduino with ATmega32u4.
+The QDeck is a Keyboard & MIDI USB controller project. You can use these libraries to build a custom deck with the desired type and number of inputs. Switches can send keyboard signals or MIDI notes. Potentiometers only send MIDI control change signals. For MIDI usage, you will need a microcontroller with MIDI over USB support such as ATmega32u4.
 
-https://user-images.githubusercontent.com/13590967/156938866-cadb5efd-5ec7-48a4-9a54-23e081dfa347.mp4
-
-While it's been mainly designed to assist in live video production work (OBS & vMix), it can be used for many cases - as long as the software has proper support, such as MIDI and proper keyboard signals.
+While it's been mainly designed to assist with software related to live streamind and broadcasting (OBS & vMix), it can be technically used for any kind of software as long as it properly reads your desired input types.
 
 ## Stuff you can make
 - Switches that sends computer keyboard signals like `F1` to `F12` or even `F13` to `F24`, essentially giving you extra hotkeys that won't interfere with your main keyboard keys
@@ -19,5 +15,5 @@ Refer to the [example.ino](https://github.com/matheusmeloni/QDeck/blob/main/exam
 - [MIDIUSB](https://github.com/arduino-libraries/MIDIUSB)
 - [Keyboard](https://github.com/arduino-libraries/Keyboard)
 
-# Hardware requirements
-For MIDI usage, you will need Arduino chips with native MIDI over USB support.
+# Requirements
+Again, for MIDI usage, you will need a microcontroller with support for MIDI over USB. You can find this out by looking up DIY MIDI controllers online, many results list the possible chips you can use.
