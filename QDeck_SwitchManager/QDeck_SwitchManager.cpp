@@ -26,7 +26,8 @@ namespace QDeck
         SetInterruptTriggered();
         for (size_t i = 0; i < m_SwitchCount; i++)
         {
-            if (m_Switches[i]->Pressed()) break;
+            if (m_Switches[i]->Pressed())
+                break;
         }
         SetInterruptDefault();
     }
