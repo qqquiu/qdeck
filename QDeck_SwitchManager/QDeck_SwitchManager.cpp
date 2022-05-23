@@ -1,7 +1,5 @@
 #include "QDeck_SwitchManager.h"
 
-// Workaround code so attachInterrupt() can call a function inside the SwitchManager class
-
 namespace QDeck
 {
     // Workaround code so attachInterrupt() can call function inside SwitchManager class
