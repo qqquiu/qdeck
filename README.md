@@ -9,7 +9,8 @@ While it's been mainly designed to assist with software related to live streamin
 - Rotary and slide potentiometers (faders) that send MIDI `Control Change` signals
 
 # Usage
-Refer to the [example.ino](https://github.com/matheusmeloni/QDeck/blob/main/example.ino) file for a demo simulating a device with 1 Keyboard Switch, 1 MIDI Switch and 1 MIDI Potentiometer
+* Clone this repository and install the desired libraries' folders inside Arduino/libraries. If you're having trouble with this refer to [this guide](http://www.arduino.cc/en/Guide/Libraries)
+* Refer to the [example files](https://github.com/qqquiu/qdeck/tree/main/examples) to understand the usage.
 
 # Dependencies
 - [MIDIUSB](https://github.com/arduino-libraries/MIDIUSB)
