@@ -1,4 +1,5 @@
 #include "QDeck_Pot.h"
+#include <MIDIUSB.h>
 #include "../QDeck_Midi/QDeck_Midi.h"
 
 namespace QDeck
@@ -13,7 +14,7 @@ namespace QDeck
     {
         uint16_t current_read = analogRead(m_Pin);
         uint16_t read_diff = abs(m_Read - current_read);
-        if (read_diff > kThres)
+        if (read_diff > Threshold)
         {
             m_Read = current_read;
             SendMidi(m_Read);
@@ -22,7 +23,7 @@ namespace QDeck
 
     void Pot::SendMidi(uint16_t value)
     {
-        QDeck_Midi::ControlChange(m_Note, value);
+        QDeck_MIDI::ControlChange(m_Note, value);
         MidiUSB.flush();
     }
 }

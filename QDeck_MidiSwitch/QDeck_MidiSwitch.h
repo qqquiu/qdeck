@@ -15,7 +15,7 @@ namespace QDeck
 
     private:
         const uint8_t m_Note;
-    }
+    };
 }
 
 #endif // QDECK_MIDISWITCH

@@ -16,7 +16,9 @@ namespace QDeck_MIDI
     }
 
     void ControlChange(uint8_t note, uint16_t value)
-    uint8_t mapped_val = map(value, k_PotMin, k_PotMax, k_MidiMin, k_MidiMax);
-    midiEventPacket_t event = {0x0B, 0xB0 | k_Channel, note, mapped_val};
-    MidiUSB.sendMIDI(event);
+    {
+        uint8_t mapped_val = map(value, k_PotMin, k_PotMax, k_MidiMin, k_MidiMax);
+        midiEventPacket_t event = {0x0B, 0xB0 | k_Channel, note, mapped_val};
+        MidiUSB.sendMIDI(event);
+    }
 }

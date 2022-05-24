@@ -3,7 +3,7 @@
 #include <MIDIUSB.h>
 
 #include <QDeck_Switch.h>
-#include <QDeck_KbSwitch.h>
+#include <QDeck_KeySwitch.h>
 #include <QDeck_Midi.h>
 #include <QDeck_MidiSwitch.h>
 #include <QDeck_SwitchManager.h>
@@ -17,7 +17,7 @@ const uint8_t key_sig = KEY_F13; // these constants are defined in Keyboard.h
 
 // Define pins and notes for midi switches
 const uint8_t midi_pin = 8;
-const uiint8_t midi_sig = 10; // note 10 in midi
+const uint8_t midi_sig = 10; // note 10 in midi
 
 QDeck::Switch* switches[] = 
 {
@@ -28,7 +28,7 @@ QDeck::Switch* switches[] =
     // which will result in the proper subroutines being called
 
     // Depending on the amount of switches and the rest of your code, be wary of dynamic memory usage
-}
+};
 
 // This is defined in QDeck_Switch.h so we don't have to keep track of switches[] length
 const size_t total_switches = GET_TOTAL_SWITCHES(switches);

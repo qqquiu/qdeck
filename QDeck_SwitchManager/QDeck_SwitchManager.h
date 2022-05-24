@@ -10,7 +10,7 @@ namespace QDeck
     {
     public:
         SwitchManager() = delete;
-        SwitchManager(QD_Switch*[] switches, size_t switch_count, uint8_t interrupt_pin);
+        SwitchManager(Switch* switches[], size_t switch_count, uint8_t interrupt_pin);
 
         void InterruptHandler();
 
@@ -21,7 +21,7 @@ namespace QDeck
 
         void SetInterruptDefault();
         void SetInterruptTriggered();
-    }
+    };
 }
 
 #endif // QDECK_SWITCHMANAGER

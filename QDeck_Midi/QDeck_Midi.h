@@ -1,6 +1,8 @@
 #ifndef QDECK_MIDI
 #define QDECK_MIDI
 
+#include <Arduino.h>
+
 namespace QDeck_MIDI
 {
     const byte k_Channel    = 0;

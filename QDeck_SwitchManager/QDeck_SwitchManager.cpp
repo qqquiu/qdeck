@@ -16,10 +16,10 @@ namespace QDeck
     {
         aux_ptr = this;
         SetInterruptDefault();
-        attachInterrupt(digitalPinToInterrupt(m_InterruptPin), WorkaroundInterrupt(), FALLING);
+        attachInterrupt(digitalPinToInterrupt(m_InterruptPin), WorkaroundInterrupt, FALLING);
     }
 
-    SwitchManager::InterruptHandler()
+    void SwitchManager::InterruptHandler()
     {
         SetInterruptTriggered();
         for (size_t i = 0; i < m_SwitchCount; i++)
@@ -30,12 +30,12 @@ namespace QDeck
         SetInterruptDefault();
     }
 
-    SwitchManager::SetInterruptDefault()
+    void SwitchManager::SetInterruptDefault()
     {
         pinMode(m_InterruptPin, INPUT_PULLUP);
     }
 
-    SwitchManager::SetInterruptTriggered()
+    void SwitchManager::SetInterruptTriggered()
     {
         pinMode(m_InterruptPin, OUTPUT);
         digitalWrite(m_InterruptPin, LOW);

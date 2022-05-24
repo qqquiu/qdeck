@@ -1,6 +1,8 @@
 #ifndef QDECK_SWITCH
 #define QDECK_SWITCH
 
+#include <Arduino.h>
+
 #define GET_TOTAL_SWITCHES(arr) sizeof(arr) / sizeof(QDeck::Switch*)
 
 namespace QDeck
@@ -9,7 +11,7 @@ namespace QDeck
     {
     public:
         Switch() = delete;
-        Switch (uint8_t pin);
+        Switch(uint8_t pin);
         bool Pressed();
 
     private:

@@ -15,15 +15,16 @@ namespace QDeck
 
         void Read();
 
+        static const uint16_t Threshold;
+
     private:
         const uint8_t m_Pin;
         const uint8_t m_Note;
-        const uint16_t m_Threshold;
 
         uint16_t m_Read;
 
         void SendMidi(uint16_t value);
-    }
+    };
 
     typedef Pot Potentiometer;
     typedef Pot Fader;
